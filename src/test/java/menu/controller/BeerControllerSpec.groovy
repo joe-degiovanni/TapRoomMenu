@@ -25,6 +25,6 @@ class BeerControllerSpec extends Specification{
         0 * _
 
         and:
-        result == "list method not implemented yet"
+        result == "list method not implemented ye"
     }
 }
