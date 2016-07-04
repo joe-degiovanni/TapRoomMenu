@@ -8,6 +8,7 @@
 <h1>Result</h1>
 <div>
     <form action="#" th:action="@{/submit}" th:object="${beer}" method="post">
+        Beer Name: <input type="text"  th:field="*{name}"/>
         <input type="Submit" value="new"/>
     </form>
 </div>
