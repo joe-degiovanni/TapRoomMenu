@@ -19,11 +19,23 @@ public class MenuController{
         return "beer";
     }
 
+    /**
+     * display the beer entry form
+     * @param model
+     * @return
+     */
     @RequestMapping("/enter")
     public String enter(Model model){
         return "form";
     }
 
+    /**
+     * handle the form submit for an updated beer.
+     * @param beer
+     * @param model
+     * @return
+     * @throws IOException
+     */
     @RequestMapping(value = "/save", consumes = {"text/plain", "application/*"})
     public String save(@RequestBody Beer beer, Model model) throws IOException {
         model.addAttribute("name", beer.getName());

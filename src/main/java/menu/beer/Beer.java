@@ -1,5 +1,8 @@
 package menu.beer;
 
+/**
+ * The business logic for a beer to display on the taproom menu
+ */
 public class Beer {
 
     public String getName() {

@@ -14,6 +14,13 @@ import javax.servlet.http.HttpServletRequest;
 @RequestMapping("/data")
 public class DataEntryController {
 
+    /**
+     * Recieves form data from the client and updates the corresponding beer file
+     *
+     * @param servletRequest
+     * @param body
+     * @return
+     */
     @RequestMapping("/beer")
     public String acceptData(HttpServletRequest servletRequest, @RequestBody RequestEntity<?> body){
         return "whoops";
