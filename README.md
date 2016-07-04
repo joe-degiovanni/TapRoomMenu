@@ -10,3 +10,6 @@ This is my attempt at menu-ing software for brewery tap rooms. It is a Spring Bo
 ## Application architecture
  * Read/Write/Update/Delete beer information and other configuration data to JSON files via Spring REST controllers
  * Serve front end and admin interface through Thymeleaf templates
+
+## Deployment
+ * Currently run as a standalone Spring Boot application. Hopefully down the road package it as a Docker image for simplified deployment.
