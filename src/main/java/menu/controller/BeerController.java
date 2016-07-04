@@ -3,7 +3,10 @@ package menu.controller;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import menu.beer.Beer;
+import org.springframework.http.RequestEntity;
 import org.springframework.web.bind.annotation.*;
+
+import javax.servlet.http.HttpServletRequest;
 
 @RestController
 @RequestMapping(value = "/beer", produces = "application/json")
@@ -32,5 +35,16 @@ public class BeerController {
         beer.setName(name);
         return mapper.writeValueAsString(beer);
     }
+
+    /**
+     * Create a new beer
+     */
+    @RequestMapping(value = "/new", method = RequestMethod.POST)
+    public String create(HttpServletRequest servletRequest, @RequestBody RequestEntity<?> body) throws JsonProcessingException {
+        Beer beer = new Beer();
+        beer.setName("testCreation");
+        return mapper.writeValueAsString(beer);
+    }
+
 
 }

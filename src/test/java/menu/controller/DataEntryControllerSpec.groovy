@@ -4,7 +4,6 @@ import org.springframework.http.RequestEntity
 import spock.lang.Specification
 
 import javax.servlet.http.HttpServletRequest
-import javax.servlet.http.HttpServletRequestWrapper
 
 class DataEntryControllerSpec extends Specification {
 

@@ -3,9 +3,7 @@ package menu.controller;
 import menu.beer.Beer;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 import java.io.File;
 import java.io.IOException;
@@ -24,9 +22,25 @@ public class MenuController{
      * @param model
      * @return
      */
-    @RequestMapping("/enter")
+    @RequestMapping(value = "/enter", method = RequestMethod.GET)
     public String enter(Model model){
-        return "form";
+        return "admin/new";
+    }
+
+    /**
+     * display the beer entry form
+     * @param model
+     * @return
+     */
+    @RequestMapping(value = "/submit", method = RequestMethod.POST)
+    public String enterSubmit(@ModelAttribute Beer beer, Model model){
+        beer.setName("submitted");
+        try {
+            this.save(beer, model);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return "admin/new";
     }
 
     /**
