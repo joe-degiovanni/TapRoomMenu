@@ -2,7 +2,7 @@ package menu.controller;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import menu.beer.Beer;
+import menu.model.beer.Beer;
 import org.springframework.http.RequestEntity;
 import org.springframework.web.bind.annotation.*;
 

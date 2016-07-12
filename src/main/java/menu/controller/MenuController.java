@@ -1,6 +1,6 @@
 package menu.controller;
 
-import menu.beer.Beer;
+import menu.model.beer.Beer;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;

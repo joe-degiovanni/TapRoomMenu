@@ -32,6 +32,8 @@ dependencies {
     compile("org.springframework.boot:spring-boot-starter-thymeleaf")
     compile("org.springframework.boot:spring-boot-devtools")
     compile("com.fasterxml.jackson.core:jackson-core")
+    compile("org.hibernate:hibernate-entitymanager")
+    compile("hsqldb:hsqldb")
     compile 'org.objenesis:objenesis:1.4'
     compile "cglib:cglib:2.2"
     testCompile(
