@@ -1,6 +1,9 @@
 package menu.model.beer
 
-import javax.persistence.Entity;
+import org.springframework.beans.factory.annotation.Autowired
+
+import javax.persistence.Entity
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
 /**
@@ -10,6 +13,7 @@ import javax.persistence.Id;
 public class Beer {
 
     @Id
+    @GeneratedValue
     Integer id
     String name
 

@@ -18,10 +18,19 @@
 
     <h2>Beer Repository</h2>
     <table>
+        <tr>
+            <td>ID</td> <td>Name</td>
+        </tr>
         <tr th:each="beer : ${beers}">
-            <td th:text="${beer.name}">Beer</td>
+            <td th:text="${beer.id}">ID</td> <td th:text="${beer.name}">Name</td>
         </tr>
     </table>
+
+    <h2>New Beer</h2>
+    <form action="#" th:action="@{/addBeer}" th:object="${beer}" method="post">
+        Beer Name: <input type="text"  th:field="*{name}"/>
+        <input type="Submit" value="new"/>
+    </form>
 
 </body>
 

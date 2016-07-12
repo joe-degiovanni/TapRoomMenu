@@ -38,7 +38,6 @@ public class BeerService {
 
     public void addFirstBeer(){
         Beer beer = new Beer();
-        beer.setId(1);
         beer.setName("first");
         beerDao.persist(beer);
     }
