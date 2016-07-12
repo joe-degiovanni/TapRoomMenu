@@ -15,18 +15,22 @@ public class MainController {
     @Autowired
     BeerService beerService;
     
-    @RequestMapping(method = RequestMethod.GET)
+    @RequestMapping(name="", method = RequestMethod.GET)
     public String home(Model model){
         model.addAttribute("beer", new Beer());
         model.addAttribute("beers",beerService.listAll());
         return "index";
     }
 
-    @RequestMapping(name = "/addBeer", method = RequestMethod.POST)
+    @RequestMapping(value="/addBeer", method = RequestMethod.POST)
     public String addBeer(@ModelAttribute Beer beer, Model model){
         beerService.add(beer);
-        model.addAttribute("beer", new Beer());
-        model.addAttribute("beers",beerService.listAll());
-        return "index";
+        return home(model);
+    }
+
+    @RequestMapping(value="/deleteBeer")
+    public String deleteBeer(@ModelAttribute Beer beer, Model model){
+        beerService.delete(beer);
+        return home(model);
     }
 }

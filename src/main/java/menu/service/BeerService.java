@@ -28,6 +28,10 @@ public class BeerService {
         }
     }
 
+    public void delete(Beer beer){
+        beerDao.delete(beer);
+    }
+
     public Beer read(Beer beer){
         return beerDao.read(beer);
     }

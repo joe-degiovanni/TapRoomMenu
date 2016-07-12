@@ -33,4 +33,7 @@ public class BeerDao {
         return (Beer)em.createNativeQuery("SELECT * FROM Beer WHERE name='" + beer.getName()+"'", Beer.class).getResultList().get(0);
     }
 
+    public void delete(Beer beer) {
+        em.createNativeQuery("DELETE FROM Beer WHERE id="+beer.getId());
+    }
 }

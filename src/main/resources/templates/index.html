@@ -19,10 +19,16 @@
     <h2>Beer Repository</h2>
     <table>
         <tr>
-            <td>ID</td> <td>Name</td>
+            <td>ID</td>
+            <td>Name</td>
+            <td>&nbsp;</td>
         </tr>
         <tr th:each="beer : ${beers}">
-            <td th:text="${beer.id}">ID</td> <td th:text="${beer.name}">Name</td>
+            <td th:text="${beer.id}">ID</td>
+            <td th:text="${beer.name}">Name</td>
+            <td>
+                <a href="#" onclick="deleteBeer(this);" th:attr="data-id=${beer.id}">Delete</a>
+            </td>
         </tr>
     </table>
 
@@ -31,6 +37,18 @@
         Beer Name: <input type="text"  th:field="*{name}"/>
         <input type="Submit" value="new"/>
     </form>
+
+    <form id="deleteBeerForm" name="deleteBeerForm" th:action="@{/deleteBeer}" th:object="${beer}" method="delete">
+        <input type="hidden"  th:field="*{id}"/>
+    </form>
+
+    <script type="text/javascript">
+        function deleteBeer(d){
+            var deleteForm = document.getElementById("deleteBeerForm");
+            deleteForm.elements.id.value = d.getAttribute("data-id");
+            deleteForm.submit();
+        }
+    </script>
 
 </body>
 
