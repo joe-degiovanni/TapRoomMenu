@@ -8,6 +8,21 @@
 </head>
 <body>
     <h1>Beer Menu</h1>
+
+    <h2>REST API</h2>
+    <ul>
+        <li><a href="/beer">List beers</a></li>
+        <li><a href="/beer/1">show first beer</a></li>
+        <li><a href="/beer/byName/first">show first beer by name</a></li>
+    </ul>
+
+    <h2>Beer Repository</h2>
+    <table>
+        <tr th:each="beer : ${beers}">
+            <td th:text="${beer.name}">Beer</td>
+        </tr>
+    </table>
+
 </body>
 
 </html>

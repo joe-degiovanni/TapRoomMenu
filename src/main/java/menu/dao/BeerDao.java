@@ -22,17 +22,15 @@ public class BeerDao {
     }
 
     public List<Beer> findAll() {
-        List<Beer> beers = new ArrayList<Beer>();
-        try {
-            beers.addAll(em.createQuery("SELECT b FROM Beer b", Beer.class).getResultList());
-        } catch (NullPointerException npe) {
-            // fine
-        }
-        return beers;
+        return em.createQuery("SELECT b FROM Beer b", Beer.class).getResultList();
     }
 
     public Beer read(Beer beer){
         return em.createQuery("SELECT b FROM Beer b where id="+beer.getId(),Beer.class).getSingleResult();
+    }
+
+    public Beer readByName(Beer beer){
+        return (Beer)em.createNativeQuery("SELECT * FROM Beer WHERE name='" + beer.getName()+"'", Beer.class).getResultList().get(0);
     }
 
 }

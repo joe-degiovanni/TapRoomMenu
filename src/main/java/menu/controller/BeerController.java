@@ -43,6 +43,6 @@ public class BeerController {
     public Beer readByName(@PathVariable String name) {
         Beer key = new Beer();
         key.setName(name);
-        return beerService.read(key);
+        return beerService.readByName(key);
     }
 }

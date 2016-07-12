@@ -5,6 +5,7 @@ import menu.model.beer.Beer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import javax.annotation.PostConstruct;
 import javax.transaction.Transactional;
 import java.util.List;
 
@@ -31,6 +32,10 @@ public class BeerService {
         return beerDao.read(beer);
     }
 
+    public Beer readByName(Beer beer){
+        return beerDao.readByName(beer);
+    }
+
     public void addFirstBeer(){
         Beer beer = new Beer();
         beer.setId(1);
@@ -42,6 +47,7 @@ public class BeerService {
     public List<Beer> listAll() {
         if(!loaded){
             addFirstBeer();
+            loaded = true;
         }
         return beerDao.findAll();
     }
