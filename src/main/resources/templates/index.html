@@ -42,9 +42,40 @@
         <input type="hidden"  th:field="*{id}"/>
     </form>
 
+    <h2>Menu Repository</h2>
+    <table>
+        <tr>
+            <td>ID</td>
+            <td>Name</td>
+            <td>&nbsp;</td>
+        </tr>
+        <tr th:each="menu : ${menus}">
+            <td th:text="${menu.id}">ID</td>
+            <td th:text="${menu.name}">Name</td>
+            <td>
+                <a href="#" onclick="deleteMenu(this);" th:attr="data-id=${menu.id}">Delete</a>
+            </td>
+        </tr>
+    </table>
+
+    <h2>New Menu</h2>
+    <form action="#" th:action="@{/addMenu}" th:object="${menu}" method="post">
+        Menu Name: <input type="text"  th:field="*{name}"/>
+        <input type="Submit" value="new"/>
+    </form>
+
+    <form id="deleteMenuForm" name="deleteMenuForm" th:action="@{/deleteMenu}" th:object="${menu}" method="delete">
+        <input type="hidden"  th:field="*{id}"/>
+    </form>
+
     <script type="text/javascript">
         function deleteBeer(d){
             var deleteForm = document.getElementById("deleteBeerForm");
+            deleteForm.elements.id.value = d.getAttribute("data-id");
+            deleteForm.submit();
+        }
+        function deleteMenu(d){
+            var deleteForm = document.getElementById("deleteMenuForm");
             deleteForm.elements.id.value = d.getAttribute("data-id");
             deleteForm.submit();
         }

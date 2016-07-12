@@ -14,7 +14,7 @@ public class Beer {
 
     @Id
     @GeneratedValue
-    Integer id
+    long id
     String name
 
 
