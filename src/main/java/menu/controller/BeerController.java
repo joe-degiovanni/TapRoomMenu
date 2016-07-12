@@ -1,50 +1,48 @@
 package menu.controller;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import menu.model.beer.Beer;
-import org.springframework.http.RequestEntity;
+import menu.service.BeerService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.List;
 
 @RestController
 @RequestMapping(value = "/beer", produces = "application/json")
 public class BeerController {
 
-    ObjectMapper mapper = new ObjectMapper(); // can reuse, share globally
+    @Autowired
+    private BeerService beerService;
 
     /**
      * List all active beers
      * @return a JSON formatted string of all active beers in the taproom
      */
     @RequestMapping(value = "", method = RequestMethod.GET)
-    public String list(){
-        return "list method not implemented yet";
+    public List<Beer> list(){
+        return beerService.listAll();
     }
 
     /**
-     * Read one beer config file by name
-     * @param name the name of the beer to read. This should match the filename of the JSON file excluding the ".json" extension
-     * @return the contents of the JSON file for the specified name. For example, if "fat-tire" is specified, return the contents of fat-tire.json
-     * @throws JsonProcessingException
+     * Read one beer by id
+     * @param id the id of the beer to read.
      */
-    @RequestMapping(value = "/{name}", method = RequestMethod.GET)
-    public String read(@PathVariable String name) throws JsonProcessingException {
-        Beer beer = new Beer();
-        beer.setName(name);
-        return mapper.writeValueAsString(beer);
+    @RequestMapping(value = "/{id}", method = RequestMethod.GET)
+    public Beer read(@PathVariable Integer id) {
+        Beer key = new Beer();
+        key.setId(id);
+        return beerService.read(key);
     }
 
     /**
-     * Create a new beer
+     * Read one beer by name
+     * @param name the name of the beer to read.
      */
-    @RequestMapping(value = "/new", method = RequestMethod.POST)
-    public String create(HttpServletRequest servletRequest, @RequestBody RequestEntity<?> body) throws JsonProcessingException {
-        Beer beer = new Beer();
-        beer.setName("testCreation");
-        return mapper.writeValueAsString(beer);
+    @RequestMapping(value = "/byName/{name}", method = RequestMethod.GET)
+    public Beer readByName(@PathVariable String name) {
+        Beer key = new Beer();
+        key.setName(name);
+        return beerService.read(key);
     }
-
-
 }

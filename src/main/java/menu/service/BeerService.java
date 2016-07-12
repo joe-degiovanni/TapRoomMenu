@@ -13,6 +13,7 @@ public class BeerService {
 
     @Autowired
     private BeerDao beerDao;
+    private boolean loaded = false;
 
     @Transactional
     public void add(Beer beer){
@@ -26,9 +27,22 @@ public class BeerService {
         }
     }
 
+    public Beer read(Beer beer){
+        return beerDao.read(beer);
+    }
+
+    public void addFirstBeer(){
+        Beer beer = new Beer();
+        beer.setId(1);
+        beer.setName("first");
+        beerDao.persist(beer);
+    }
+
     @Transactional
     public List<Beer> listAll() {
+        if(!loaded){
+            addFirstBeer();
+        }
         return beerDao.findAll();
-
     }
 }
