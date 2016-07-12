@@ -8,6 +8,7 @@ import org.springframework.stereotype.Component;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.criteria.CriteriaQuery;
+import javax.transaction.Transactional;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -26,14 +27,16 @@ public class BeerDao {
     }
 
     public Beer read(Beer beer){
-        return em.createQuery("SELECT b FROM Beer b where id="+beer.getId(),Beer.class).getSingleResult();
+        return em.find(Beer.class, beer.getId());
     }
 
     public Beer readByName(Beer beer){
         return (Beer)em.createNativeQuery("SELECT * FROM Beer WHERE name='" + beer.getName()+"'", Beer.class).getResultList().get(0);
     }
 
+    @Transactional
     public void delete(Beer beer) {
-        em.createNativeQuery("DELETE FROM Beer WHERE id="+beer.getId());
+        beer = em.find(Beer.class, beer.getId());
+        em.remove(beer);
     }
 }
