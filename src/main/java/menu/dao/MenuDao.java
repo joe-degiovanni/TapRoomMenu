@@ -10,21 +10,19 @@ import javax.transaction.Transactional;
 import java.util.List;
 
 @Component
-public class MenuDao {
+public class MenuDao extends AbstractDao<Menu>{
 
     @PersistenceContext
     private EntityManager em;
 
-    public void persist(Menu menu) {
-        em.persist(menu);
+
+    @Override
+    protected EntityManager getEntityManager() {
+        return em;
     }
 
     public List<Menu> findAll() {
         return em.createQuery("SELECT b FROM Menu b", Menu.class).getResultList();
-    }
-
-    public Menu read(Menu menu){
-        return em.find(Menu.class, menu.getId());
     }
 
     public Menu readByName(Menu menu){

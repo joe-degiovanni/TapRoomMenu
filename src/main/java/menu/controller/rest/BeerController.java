@@ -1,4 +1,4 @@
-package menu.controller;
+package menu.controller.rest;
 
 import menu.model.beer.Beer;
 import menu.service.BeerService;
