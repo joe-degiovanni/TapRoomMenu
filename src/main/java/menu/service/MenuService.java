@@ -15,6 +15,8 @@ public class MenuService {
 
     @Autowired
     private MenuDao menuDao;
+    @Autowired
+    private BeerDao beerDao;
     private boolean loaded = false;
 
     @Transactional
@@ -43,7 +45,8 @@ public class MenuService {
 
     public void addFirstMenu(){
         Menu menu = new Menu();
-        menu.setName("first");
+        menu.setName("first menu");
+        menu.setBeerList(beerDao.findAll());
         menuDao.persist(menu);
     }
 

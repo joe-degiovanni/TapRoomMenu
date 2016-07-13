@@ -52,4 +52,10 @@ public class MainController {
         menuService.delete(menu);
         return home(model);
     }
+
+    @RequestMapping(value = "/viewMenu")
+    public String viewMenu(Model model){
+        model.addAttribute("menus", menuService.listAll());
+        return "menus";
+    }
 }
