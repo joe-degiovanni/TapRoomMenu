@@ -8,7 +8,7 @@ import javax.persistence.Id;
  * The business logic for a beer to display on the taproom menu
  */
 @Entity
-public class Beer {
+public class Beer extends AbstractEntity {
 
     @Id
     @GeneratedValue
