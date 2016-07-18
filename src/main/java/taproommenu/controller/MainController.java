@@ -1,9 +1,9 @@
-package menu.controller;
+package taproommenu.controller;
 
-import menu.model.beer.Beer;
-import menu.model.beer.Menu;
-import menu.service.BeerService;
-import menu.service.MenuService;
+import taproommenu.businesslogic.model.Beer;
+import taproommenu.businesslogic.model.Menu;
+import taproommenu.businesslogic.service.BeerService;
+import taproommenu.businesslogic.service.MenuService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -24,7 +24,7 @@ public class MainController {
     public String home(Model model){
         model.addAttribute("beer", new Beer());
         model.addAttribute("beers",beerService.listAll());
-        model.addAttribute("menu", new Menu());
+        model.addAttribute("taproommenu", new Menu());
         model.addAttribute("menus",menuService.listAll());
         return "index";
     }

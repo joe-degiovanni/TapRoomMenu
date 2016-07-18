@@ -1,7 +1,7 @@
-package menu.controller.rest;
+package taproommenu.controller.rest;
 
-import menu.model.beer.Menu;
-import menu.service.MenuService;
+import taproommenu.businesslogic.model.Menu;
+import taproommenu.businesslogic.service.MenuService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;

@@ -13,7 +13,7 @@
     ID: <input type="text" th:field="*{id}" readonly="true"/><br/>
     Menu Name: <input type="text"  th:field="*{name}"/><br/>
     <table>
-        <tr th:each="beer : ${menu.beerList}">
+        <tr th:each="beer : ${taproommenu.beerList}">
             <td th:text="${beer.name}">beer</td>
         </tr>
     </table>

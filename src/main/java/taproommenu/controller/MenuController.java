@@ -1,16 +1,15 @@
-package menu.controller;
+package taproommenu.controller;
 
-import menu.model.beer.Beer;
-import menu.model.beer.Menu;
-import menu.service.BeerService;
-import menu.service.MenuService;
+import taproommenu.businesslogic.model.Menu;
+import taproommenu.businesslogic.service.BeerService;
+import taproommenu.businesslogic.service.MenuService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 @Controller
-@RequestMapping("/menu")
+@RequestMapping("/taproommenu")
 public class MenuController {
 
     @Autowired
@@ -21,8 +20,8 @@ public class MenuController {
 
     @RequestMapping(name="", method = RequestMethod.GET)
     public String home(Model model){
-        if(!model.containsAttribute("menu")){
-            model.addAttribute("menu", new Menu());
+        if(!model.containsAttribute("taproommenu")){
+            model.addAttribute("taproommenu", new Menu());
         }
         model.addAttribute("menus",menuService.listAll());
         return "menus";
@@ -48,7 +47,7 @@ public class MenuController {
         if(menu.getId() > 0 && menuService.exists(menu)){
             menu = menuService.read(menu);
         }
-        model.addAttribute("menu", menu);
+        model.addAttribute("taproommenu", menu);
         return home(model);
     }
 
@@ -61,7 +60,7 @@ public class MenuController {
         } else {
             throw new RuntimeException("menu does not exist");
         }
-        model.addAttribute("menu",menu);
+        model.addAttribute("taproommenu",menu);
         return home(model);
     }
 
@@ -74,7 +73,7 @@ public class MenuController {
         } else {
             throw new RuntimeException("menu does not exist");
         }
-        model.addAttribute("menu",menu);
+        model.addAttribute("taproommenu",menu);
         return "menus/edit";
     }
 

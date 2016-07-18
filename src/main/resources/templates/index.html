@@ -50,10 +50,10 @@
             <td>&nbsp;</td>
         </tr>
         <tr th:each="menu : ${menus}">
-            <td th:text="${menu.id}">ID</td>
-            <td th:text="${menu.name}">Name</td>
+            <td th:text="${taproommenu.id}">ID</td>
+            <td th:text="${taproommenu.name}">Name</td>
             <td>
-                <a href="#" onclick="deleteMenu(this);" th:attr="data-id=${menu.id}">Delete</a>
+                <a href="#" onclick="deleteMenu(this);" th:attr="data-id=${taproommenu.id}">Delete</a>
             </td>
         </tr>
     </table>

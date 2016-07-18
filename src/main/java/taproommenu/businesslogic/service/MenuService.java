@@ -1,11 +1,9 @@
-package menu.service;
+package taproommenu.businesslogic.service;
 
-import menu.dao.BeerDao;
-import menu.dao.MenuDao;
-import menu.model.beer.Beer;
-import menu.model.beer.Menu;
+import taproommenu.businesslogic.dao.BeerDao;
+import taproommenu.businesslogic.dao.MenuDao;
+import taproommenu.businesslogic.model.Menu;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;

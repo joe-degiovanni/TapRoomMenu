@@ -1,8 +1,6 @@
-package menu.dao;
+package taproommenu.businesslogic.dao;
 
-import menu.model.beer.Beer;
-import menu.model.beer.Menu;
-import org.springframework.stereotype.Component;
+import taproommenu.businesslogic.model.Menu;
 import org.springframework.stereotype.Repository;
 
 import javax.persistence.EntityManager;

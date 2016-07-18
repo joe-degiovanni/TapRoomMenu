@@ -1,15 +1,11 @@
-package menu.dao;
+package taproommenu.businesslogic.dao;
 
-import menu.model.beer.Beer;
-import org.hibernate.jpa.criteria.CriteriaBuilderImpl;
-import org.hibernate.jpa.criteria.CriteriaQueryImpl;
+import taproommenu.businesslogic.model.Beer;
 import org.springframework.stereotype.Component;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
-import javax.persistence.criteria.CriteriaQuery;
 import javax.transaction.Transactional;
-import java.util.ArrayList;
 import java.util.List;
 
 @Component

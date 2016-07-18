@@ -1,11 +1,10 @@
-package menu.controller.rest;
+package taproommenu.controller.rest;
 
-import menu.model.beer.Beer;
-import menu.service.BeerService;
+import taproommenu.businesslogic.model.Beer;
+import taproommenu.businesslogic.service.BeerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
 @RestController
