@@ -32,7 +32,7 @@
         </tr>
     </table>
 
-    <h2>New Beer</h2>
+    <h2>Quick Add New Beer</h2>
     <form action="#" th:action="@{/addBeer}" th:object="${beer}" method="post">
         Beer Name: <input type="text"  th:field="*{name}"/>
         <input type="Submit" value="new"/>
@@ -58,7 +58,7 @@
         </tr>
     </table>
 
-    <h2>New Menu</h2>
+    <h2>Quick Add New Menu</h2>
     <form action="#" th:action="@{/addMenu}" th:object="${menu}" method="post">
         Menu Name: <input type="text"  th:field="*{name}"/>
         <input type="Submit" value="new"/>

@@ -58,4 +58,8 @@ public class MenuService {
         }
         return menuDao.findAll();
     }
+
+    public boolean exists(Menu menu) {
+        return menuDao.exists(menu);
+    }
 }

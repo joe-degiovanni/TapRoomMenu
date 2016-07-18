@@ -36,4 +36,9 @@ public class MenuDao {
         menu = em.find(Menu.class, menu.getId());
         em.remove(menu);
     }
+
+    public boolean exists(Menu menu) {
+        Menu found = read(menu);
+        return (found != null);
+    }
 }

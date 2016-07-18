@@ -28,6 +28,14 @@
     </tr>
 </table>
 
+<h2>Quick Add New Menu</h2>
+<form action="#" th:action="@{/menu/add}" th:object="${menu}" method="post">
+    ID: <input type="text" th:field="*{id}" readonly="true"/><br/>
+    Menu Name: <input type="text"  th:field="*{name}"/><br/>
+    <input type="Submit" value="new"/>
+</form>
+
+
 </body>
 
 </html>

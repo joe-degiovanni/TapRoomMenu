@@ -1,4 +1,4 @@
-package menu.controller;
+package menu.controller.rest;
 
 import menu.model.beer.Beer;
 import menu.service.BeerService;
@@ -9,8 +9,8 @@ import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
 @RestController
-@RequestMapping(value = "/beer", produces = "application/json")
-public class BeerController {
+@RequestMapping(value = "/rest/beer", produces = "application/json")
+public class BeerRestController {
 
     @Autowired
     private BeerService beerService;
