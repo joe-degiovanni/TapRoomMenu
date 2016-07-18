@@ -24,7 +24,7 @@ public class MainController {
     public String home(Model model){
         model.addAttribute("beer", new Beer());
         model.addAttribute("beers",beerService.listAll());
-        model.addAttribute("taproommenu", new Menu());
+        model.addAttribute("menu", new Menu());
         model.addAttribute("menus",menuService.listAll());
         return "index";
     }

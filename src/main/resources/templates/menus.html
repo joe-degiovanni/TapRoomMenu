@@ -16,11 +16,11 @@
         <td>&nbsp;</td>
     </tr>
     <tr th:each="menu : ${menus}">
-        <td th:text="${taproommenu.id}">ID</td>
-        <td th:text="${taproommenu.name}">Name</td>
+        <td th:text="${menu.id}">ID</td>
+        <td th:text="${menu.name}">Name</td>
         <td>
             <table>
-                <tr th:each="beer : ${taproommenu.beerList}">
+                <tr th:each="beer : ${menu.beerList}">
                     <td th:text="${beer.name}">beer</td>
                 </tr>
             </table>

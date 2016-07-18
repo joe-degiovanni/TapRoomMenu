@@ -9,7 +9,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 @Controller
-@RequestMapping("/taproommenu")
+@RequestMapping("/menu")
 public class MenuController {
 
     @Autowired
@@ -20,8 +20,8 @@ public class MenuController {
 
     @RequestMapping(name="", method = RequestMethod.GET)
     public String home(Model model){
-        if(!model.containsAttribute("taproommenu")){
-            model.addAttribute("taproommenu", new Menu());
+        if(!model.containsAttribute("menu")){
+            model.addAttribute("menu", new Menu());
         }
         model.addAttribute("menus",menuService.listAll());
         return "menus";
@@ -47,7 +47,7 @@ public class MenuController {
         if(menu.getId() > 0 && menuService.exists(menu)){
             menu = menuService.read(menu);
         }
-        model.addAttribute("taproommenu", menu);
+        model.addAttribute("menu", menu);
         return home(model);
     }
 
@@ -60,7 +60,7 @@ public class MenuController {
         } else {
             throw new RuntimeException("menu does not exist");
         }
-        model.addAttribute("taproommenu",menu);
+        model.addAttribute("menu",menu);
         return home(model);
     }
 
@@ -73,7 +73,7 @@ public class MenuController {
         } else {
             throw new RuntimeException("menu does not exist");
         }
-        model.addAttribute("taproommenu",menu);
+        model.addAttribute("menu",menu);
         return "menus/edit";
     }
 
