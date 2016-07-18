@@ -19,6 +19,10 @@ public class MenuDao {
         return em;
     }
 
+    public void persist(Menu menu) {
+        em.persist(menu);
+    }
+
     public List<Menu> findAll() {
         return em.createQuery("SELECT b FROM Menu b", Menu.class).getResultList();
     }
