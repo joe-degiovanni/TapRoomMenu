@@ -6,11 +6,12 @@ import menu.model.beer.Beer;
 import menu.model.beer.Menu;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
 import java.util.List;
 
-@Component
+@Service
 public class MenuService {
 
     @Autowired

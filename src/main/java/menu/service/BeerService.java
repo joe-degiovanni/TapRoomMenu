@@ -4,12 +4,13 @@ import menu.dao.BeerDao;
 import menu.model.beer.Beer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
 import javax.annotation.PostConstruct;
 import javax.transaction.Transactional;
 import java.util.List;
 
-@Component
+@Service
 public class BeerService {
 
     @Autowired
