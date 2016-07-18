@@ -8,7 +8,7 @@ import javax.persistence.JoinTable
 import javax.persistence.OneToMany
 
 @Entity
-class Menu extends AbstractRecord{
+class Menu {
 
     @Id
     @GeneratedValue
