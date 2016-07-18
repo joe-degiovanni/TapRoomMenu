@@ -13,10 +13,15 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Component
-public class BeerDao {
+public class BeerDao extends AbstractDao<Beer>{
 
     @PersistenceContext
     private EntityManager em;
+
+    @Override
+    protected EntityManager getEntityManager() {
+        return em;
+    }
 
     public void persist(Beer beer) {
         em.persist(beer);
