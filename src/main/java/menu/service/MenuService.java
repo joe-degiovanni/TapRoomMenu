@@ -25,6 +25,11 @@ public class MenuService {
     }
 
     @Transactional
+    public void update(Menu menu) {
+        menuDao.persist(menu);
+    }
+
+    @Transactional
     public void addAll(List<Menu> menus){
         for(Menu menu : menus){
             menuDao.persist(menu);
