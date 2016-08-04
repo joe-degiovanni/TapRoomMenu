@@ -14,7 +14,7 @@ import java.util.List;
 @MappedSuperclass
 public abstract class AbstractDao<T extends AbstractEntity> {
 
-    private Class<T> clazz;
+    protected Class<T> clazz;
 
     @PersistenceContext
     protected EntityManager em;

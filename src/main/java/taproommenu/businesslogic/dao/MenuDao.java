@@ -11,6 +11,10 @@ import java.util.List;
 @Repository
 public class MenuDao extends AbstractDao<Menu> {
 
+    public MenuDao(){
+        clazz = Menu.class;
+    }
+
     public List<Menu> findAll() {
         return em.createQuery("SELECT b FROM Menu b", Menu.class).getResultList();
     }

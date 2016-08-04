@@ -12,6 +12,10 @@ import java.util.List;
 @Repository
 public class BeerDao extends AbstractDao<Beer> {
 
+    public BeerDao(){
+        clazz = Beer.class;
+    }
+
     public List<Beer> findAll() {
         return em.createQuery("SELECT b FROM Beer b", Beer.class).getResultList();
     }
